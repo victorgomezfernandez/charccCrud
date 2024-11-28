@@ -1,0 +1,7 @@
+{
+  "name": "charccCrud",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
