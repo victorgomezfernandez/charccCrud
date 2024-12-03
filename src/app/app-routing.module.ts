@@ -11,6 +11,18 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'charcc-characters',
+    loadChildren: () => import('./charcc-characters/charcc-characters.module').then( m => m.CharccCharactersPageModule)
+  },
+  {
+    path: 'charcc-informations',
+    loadChildren: () => import('./charcc-informations/charcc-informations.module').then( m => m.CharccInformationsPageModule)
+  },
+  {
+    path: 'charcc-stats',
+    loadChildren: () => import('./charcc-stats/charcc-stats.module').then( m => m.CharccStatsPageModule)
+  },
 ];
 
 @NgModule({
