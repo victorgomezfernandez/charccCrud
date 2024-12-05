@@ -16,12 +16,16 @@ const routes: Routes = [
     loadChildren: () => import('./charcc-characters/charcc-characters.module').then( m => m.CharccCharactersPageModule)
   },
   {
-    path: 'charcc-informations',
-    loadChildren: () => import('./charcc-informations/charcc-informations.module').then( m => m.CharccInformationsPageModule)
+    path: 'charcc-informations/:id',
+    loadChildren: () => import('./charcc-informations/charcc-informations.module').then((m) => m.CharccInformationsPageModule),
   },
   {
-    path: 'charcc-stats',
-    loadChildren: () => import('./charcc-stats/charcc-stats.module').then( m => m.CharccStatsPageModule)
+    path: 'charcc-stats/:id',
+    loadChildren: () => import('./charcc-stats/charcc-stats.module').then((m) => m.CharccStatsPageModule),
+  },
+  {
+    path: '**',
+    redirectTo: '', // Redirige a la página principal
   },
 ];
 

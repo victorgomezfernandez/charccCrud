@@ -10,22 +10,42 @@
       <ion-title size="large">charcc-stats</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-input type="number" min=1 max=30 label="Strength" clearInput required></ion-input>
-  <ion-input type="number" min=1 max=30 label="Dexterity" clearInput required></ion-input>
-  <ion-input type="number" min=1 max=30 label="Constitution" clearInput required></ion-input>
-  <ion-input type="number" min=1 max=30 label="Intelligence" clearInput required></ion-input>
-  <ion-input type="number" min=1 max=30 label="Wisdom" clearInput required></ion-input>
-  <ion-input type="number" min=1 max=30 label="Charisma" clearInput required></ion-input>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <ion-grid>
+      <ion-item>
+        <ion-input type="number" formControlName="strength" placeholder="Strength"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" formControlName="dexterity" placeholder="Dexterity"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" formControlName="constitution" placeholder="Constitution"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" formControlName="intelligence" placeholder="Intelligence"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" formControlName="wisdom" placeholder="Wisdom"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" formControlName="charisma" placeholder="Charisma"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="hidden" formControlName="character_id" placeholder="Character Id"></ion-input>
+      </ion-item>
+    </ion-grid>
+    <ion-button expand="block" type="submit">Save</ion-button>
+  </form>
   <ion-list>
     <ion-item *ngFor="let s of stats">
       <ion-label>
-        <h1>Character: {{s.id}}</h1>
-        <h2>Strength: {{s.strength}}</h2>
-        <h2>Dexterity: {{s.dexterity}}</h2>
-        <h2>Constitution: {{s.constitution}}</h2>
-        <h2>Intelligence: {{s.intelligence}}</h2>
-        <h2>Wisdom: {{s.wisdom}}</h2>
-        <h2>Charisma: {{s.charisma}}</h2>
+        <h1>Character: {{ s.id }}</h1>
+        <h2>Strength: {{ s.strength }}</h2>
+        <h2>Dexterity: {{ s.dexterity }}</h2>
+        <h2>Constitution: {{ s.constitution }}</h2>
+        <h2>Intelligence: {{ s.intelligence }}</h2>
+        <h2>Wisdom: {{ s.wisdom }}</h2>
+        <h2>Charisma: {{ s.charisma }}</h2>
       </ion-label>
     </ion-item>
   </ion-list>
