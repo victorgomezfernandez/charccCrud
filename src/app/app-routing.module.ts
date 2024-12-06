@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
     path: '',
@@ -13,22 +13,27 @@ const routes: Routes = [
   },
   {
     path: 'charcc-characters',
-    loadChildren: () => import('./charcc-characters/charcc-characters.module').then( m => m.CharccCharactersPageModule)
+    loadChildren: () => import('./charcc-characters/charcc-characters.module').then(m => m.CharccCharactersPageModule)
   },
   {
     path: 'charcc-informations',
-    loadChildren: () => import('./charcc-informations/charcc-informations.module').then( m => m.CharccInformationsPageModule)
+    loadChildren: () => import('./charcc-informations/charcc-informations.module').then(m => m.CharccInformationsPageModule)
+  },
+  {
+    path: 'charcc-informations/:id',
+    loadChildren: () => import('./charcc-informations/charcc-informations.module').then(m => m.CharccInformationsPageModule)
   },
   {
     path: 'charcc-stats',
-    loadChildren: () => import('./charcc-stats/charcc-stats.module').then( m => m.CharccStatsPageModule)
+    loadChildren: () => import('./charcc-stats/charcc-stats.module').then(m => m.CharccStatsPageModule)
   },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

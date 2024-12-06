@@ -10,34 +10,45 @@
       <ion-title size="large">charcc-informations</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-input type="text" label="Name" clearInput required></ion-input>
-  <ion-input type="number" min=1 label="Age" clearInput required></ion-input>
-  <ion-input type="number" min=1 max=20 label="Level" clearInput required></ion-input>
-  <ion-input type="text" label="Class" clearInput required></ion-input>
-  <ion-input type="text" label="Race" clearInput required></ion-input>
-  <ion-input type="text" label="Factions" clearInput required></ion-input>
-  <ion-input type="text" label="Traits" clearInput required></ion-input>
-  <ion-input type="text" label="Ideals" clearInput required></ion-input>
-  <ion-input type="text" label="Flaws" clearInput required></ion-input>
-  <ion-input type="text" label="Bonds" clearInput required></ion-input>
-  <ion-input type="text" label="Backstory" clearInput required></ion-input>
-  <ion-list>
-    <ion-item *ngFor="let i of informations">
-      <ion-label>
-        <h1>Id: {{i.id}}</h1>
-        <h2>Name: {{i.name}}</h2>
-        <h2>Age: {{i.age}}</h2>
-        <h2>Level: {{i.level}}</h2>
-        <h2>Class: {{i.charClass}}</h2>
-        <h2>Race: {{i.race}}</h2>
-        <h2>Factions: {{i.factions}}</h2>
-        <h2>Traits: {{i.traits}}</h2>
-        <h2>Ideals: {{i.ideals}}</h2>
-        <h2>Flaws: {{i.flaws}}</h2>
-        <h2>Bonds: {{i.bonds}}</h2>
-        <h2>Backstory: {{i.backstory}}</h2>
-        <h2>Character: {{i.character_id}}</h2>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <form [formGroup]="form">
+    <ion-grid>
+      <ion-item>
+        <ion-input type="text" formControlName="name" placeholder="Name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" formControlName="age" placeholder="Age"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="number" formControlName="level" placeholder="Level"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" formControlName="charClass" placeholder="Class"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" formControlName="race" placeholder="Race"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" formControlName="factions" placeholder="Factions"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" formControlName="traits" placeholder="Traits"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" formControlName="ideals" placeholder="Ideals"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" formControlName="flaws" placeholder="Flaws"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" formControlName="bonds" placeholder="Bonds"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" formControlName="backstory" placeholder="Backstory"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="hidden" formControlName="character_id" placeholder="Character Id"></ion-input>
+      </ion-item>
+    </ion-grid>
+    <ion-button expand="block" type="submit" [disabled]="form.invalid" (click)="saveInformation()">Save</ion-button>
+  </form>
 </ion-content>
