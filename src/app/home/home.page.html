@@ -12,13 +12,6 @@
       <ion-title size="large">CharCRUD</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-list>
-    <ion-item *ngFor="let c of characters">
-      <ion-label>
-        <h1>{{c.id}}</h1>
-      </ion-label>
-    </ion-item>
-  </ion-list>
   <div id="container">
     <ion-button expand="block" (click)="createCharacter()">Create Character</ion-button>
   </div>

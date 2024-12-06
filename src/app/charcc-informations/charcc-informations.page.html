@@ -7,11 +7,12 @@
 <ion-content>
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">charcc-informations</ion-title>
+      <ion-title size="large">Informaciones del Personaje</ion-title>
     </ion-toolbar>
   </ion-header>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <ion-grid >
+
+  <form [formGroup]="form">
+    <ion-grid>
       <ion-item>
         <ion-input type="text" formControlName="name" placeholder="Name"></ion-input>
       </ion-item>
@@ -49,6 +50,6 @@
         <ion-input type="hidden" formControlName="character_id" placeholder="Character Id"></ion-input>
       </ion-item>
     </ion-grid>
-    <ion-button expand="block" type="submit">Save</ion-button>
+    <ion-button expand="block" type="submit" [disabled]="form.invalid">Save</ion-button>
   </form>
 </ion-content>

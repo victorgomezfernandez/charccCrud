@@ -1,51 +1,27 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {CharactersService} from "../services/characters.service";
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { CharactersService } from "../services/characters.service";
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
 })
-export class HomePage implements OnInit {
-
-  characters: any = [];
-
-  constructor(private router: Router, private charactersService: CharactersService) {
-  }
-
-  ngOnInit() {
-    this.getAllCharacters();
-  }
-
-  getAllCharacters() {
-    this.charactersService.getCharacters().subscribe(response => {
-      this.characters = response;
-    })
-  }
+export class HomePage {
+  constructor(
+    private characterService: CharactersService,
+    private router: Router
+  ) {}
 
   createCharacter() {
-    this.charactersService.createCharacter().subscribe({
-      next: (character) => {
-        this.router.navigate(['/charcc-informations', character.id]);
+    this.characterService.createCharacter().subscribe(
+      (response) => {
+        const characterId = response.id;
+        this.router.navigate(['/charcc-informations', characterId]);
       },
-      error: (error) => {
-        console.error('Error al crear ', error);
+      (error) => {
+        console.error('Error al crear el personaje', error);
       }
-    })
+    );
   }
-
-
-  goToCharacters() {
-    this.router.navigateByUrl("/charcc-characters");
-  }
-
-  goToInformations() {
-    this.router.navigateByUrl("/charcc-informations")
-  }
-
-  goToStats() {
-    this.router.navigateByUrl("/charcc-stats")
-  }
-
 }

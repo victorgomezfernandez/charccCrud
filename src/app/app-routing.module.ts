@@ -1,38 +1,27 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { HomePage } from './home/home.page';
+import { CharccInformationsPage } from './charcc-informations/charcc-informations.page';
 
 const routes: Routes = [
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   },
   {
-    path: 'charcc-characters',
-    loadChildren: () => import('./charcc-characters/charcc-characters.module').then( m => m.CharccCharactersPageModule)
+    path: 'home',
+    component: HomePage
   },
   {
     path: 'charcc-informations/:id',
-    loadChildren: () => import('./charcc-informations/charcc-informations.module').then((m) => m.CharccInformationsPageModule),
+    component: CharccInformationsPage
   },
-  {
-    path: 'charcc-stats/:id',
-    loadChildren: () => import('./charcc-stats/charcc-stats.module').then((m) => m.CharccStatsPageModule),
-  },
-  {
-    path: '**',
-    redirectTo: '', // Redirige a la página principal
-  },
+  // Otras rutas...
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

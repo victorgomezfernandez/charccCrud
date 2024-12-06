@@ -7,21 +7,11 @@ import { Router } from "@angular/router";
   templateUrl: './charcc-characters.page.html',
   styleUrls: ['./charcc-characters.page.scss'],
 })
-export class CharccCharactersPage implements OnInit {
+export class CharccCharactersPage {
 
   characters: any = [];
 
   constructor(private charactersService : CharactersService, private router: Router) { }
 
-  ngOnInit() {
-    this.getAllCharacters();
-  }
-
-  getAllCharacters(){
-    this.charactersService.getCharacters().subscribe(response => {
-      console.log(response);
-      this.characters = response;
-    })
-  }
 
 }
