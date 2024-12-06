@@ -40,9 +40,7 @@ export class CharccInformationsPage implements OnInit {
   saveInformation() {
     if (this.form.valid) {
       const formData = this.form.value;
-
-      // Asegúrate de que character_id sea un número
-      formData.character_id = +formData.character_id;  // Convertir a número si es una cadena
+      formData.character_id = +formData.character_id;
 
       console.log('Datos del formulario a enviar:', formData);
 
