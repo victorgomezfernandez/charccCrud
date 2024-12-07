@@ -13,7 +13,7 @@ export class HomePage {
 
   constructor(private router: Router, private httpClient: HttpClient) {}
 
-  goToCharacters(){
+  createCharacter(){
     const newCharacter = {};
     this.httpClient.post<any>(this.endpoint, newCharacter).subscribe({
       next: (response) => {

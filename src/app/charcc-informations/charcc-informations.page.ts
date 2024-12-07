@@ -19,7 +19,7 @@ export class CharccInformationsPage implements OnInit {
 
   ngOnInit() {
     const characterId = this.route.snapshot.paramMap.get('id');
-    console.log('Character ID:', characterId); // Verifica que el ID no sea nulo o undefined
+    console.log('Character ID:', characterId);
     this.form = this.fb.group({
       name: ['', Validators.required],
       age: ['', Validators.required],
@@ -40,7 +40,7 @@ export class CharccInformationsPage implements OnInit {
   saveInformation() {
     if (this.form.valid) {
       const formData = this.form.value;
-      formData.character_id = +formData.character_id;
+      formData.character = { id: formData.character_id };
 
       console.log('Datos del formulario a enviar:', formData);
 
