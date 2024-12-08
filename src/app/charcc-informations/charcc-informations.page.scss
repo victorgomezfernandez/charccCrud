@@ -1,0 +1,51 @@
+ion-content.new_container {
+  background-color: #e9e9e9;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.medium_input {
+  background-color: #515151;
+  border: 1px solid black;
+  color: white;
+  border-radius: 18px;
+  height: 2.7em;
+  width: 75vw;
+  padding: 5px 5px 5px 10px;
+}
+
+.medium_input:focus {
+  background-color: #a6a6a6;
+  color: black;
+  border: 1px solid black;
+  outline: none;
+}
+
+.medium_input::placeholder {
+  color: rgba(255, 255, 255, 1);
+}
+
+.large_input {
+  resize: none;
+  background-color: #515151;
+  border: 1px solid black;
+  color: white;
+  border-radius: 18px;
+  height: 10em;
+  width: 75vw;
+  padding: 5px 5px 5px 10px;
+  font-size: 16px;
+}
+
+.large_input:focus {
+  background-color: #a6a6a6;
+  color: black;
+  border: 1px solid black;
+  outline: none;
+}
+
+.large_input::placeholder {
+  color: rgba(255, 255, 255, 1);
+}
