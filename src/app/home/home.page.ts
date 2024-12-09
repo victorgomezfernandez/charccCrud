@@ -9,21 +9,12 @@ import { HttpClient } from "@angular/common/http";
 })
 export class HomePage {
 
-  private endpoint = 'http://localhost:8080/api/charcc/characters';
+  private endpoint = 'http://localhost:8080/api/charcc/informations';
 
   constructor(private router: Router, private httpClient: HttpClient) {}
 
   createCharacter(){
-    const newCharacter = {};
-    this.httpClient.post<any>(this.endpoint, newCharacter).subscribe({
-      next: (response) => {
-        const characterId = response.id;
-        this.router.navigate(['/charcc-informations', characterId]);
-      },
-      error: (err) => {
-        console.error('Error al crear:', err);
-      },
-    });
+    this.router.navigateByUrl('/charcc-informations')
   }
 
 }

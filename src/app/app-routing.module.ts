@@ -12,10 +12,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'charcc-characters',
-    loadChildren: () => import('./charcc-characters/charcc-characters.module').then(m => m.CharccCharactersPageModule)
-  },
-  {
     path: 'charcc-informations',
     loadChildren: () => import('./charcc-informations/charcc-informations.module').then(m => m.CharccInformationsPageModule)
   },

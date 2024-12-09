@@ -45,9 +45,6 @@
       <ion-item>
         <ion-textarea class="large_input" formControlName="backstory" placeholder="Backstory"></ion-textarea>
       </ion-item>
-      <ion-item>
-        <ion-input type="hidden" formControlName="character_id" placeholder="Character Id"></ion-input>
-      </ion-item>
     </ion-grid>
     <ion-button expand="block" type="submit" [disabled]="form.invalid" (click)="saveInformation()">Save</ion-button>
   </form>

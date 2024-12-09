@@ -18,8 +18,6 @@ export class CharccInformationsPage implements OnInit {
   }
 
   ngOnInit() {
-    const characterId = this.route.snapshot.paramMap.get('id');
-    console.log('Character ID:', characterId);
     this.form = this.fb.group({
       name: ['', Validators.required],
       age: ['', Validators.required],
@@ -32,18 +30,13 @@ export class CharccInformationsPage implements OnInit {
       flaws: ['', Validators.required],
       bonds: ['', Validators.required],
       backstory: ['', Validators.required],
-      character_id: [characterId],
     });
   }
-
 
   saveInformation() {
     if (this.form.valid) {
       const formData = this.form.value;
-      formData.character = { id: formData.character_id };
-
-      console.log('Datos del formulario a enviar:', formData);
-
+      console.log('Datos del formulario: ', formData);
       this.httpClient.post(this.endpoint, formData).subscribe({
         next: (response) => {
           console.log('Información guardada con éxito', response);
@@ -57,6 +50,4 @@ export class CharccInformationsPage implements OnInit {
       console.log('El formulario no es válido');
     }
   }
-
-
 }
