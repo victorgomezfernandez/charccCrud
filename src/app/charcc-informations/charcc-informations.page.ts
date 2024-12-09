@@ -38,9 +38,10 @@ export class CharccInformationsPage implements OnInit {
       const formData = this.form.value;
       console.log('Datos del formulario: ', formData);
       this.httpClient.post(this.endpoint, formData).subscribe({
-        next: (response) => {
+        next: (response: any) => {
           console.log('Información guardada con éxito', response);
-          this.router.navigate(['/']);
+          const id = response.id;
+          this.router.navigate(['/charcc-stats', id]);
         },
         error: (err) => {
           console.error('Error al guardar la información', err);
@@ -50,4 +51,5 @@ export class CharccInformationsPage implements OnInit {
       console.log('El formulario no es válido');
     }
   }
+
 }

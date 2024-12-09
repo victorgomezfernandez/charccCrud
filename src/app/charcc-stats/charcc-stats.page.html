@@ -13,24 +13,27 @@
   <form [formGroup]="form">
     <ion-grid>
       <ion-item>
-        <ion-input type="number" min=1 max=30 label="Strength" clearInput required></ion-input>
+        <ion-input type="number" formControlName="strength" min="1" max="30" placeholder="Strength" required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="number" min=1 max=30 label="Dexterity" clearInput required></ion-input>
+        <ion-input type="number" formControlName="dexterity" min="1" max="30" placeholder="Dexterity" required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="number" min=1 max=30 label="Constitution" clearInput required></ion-input>
+        <ion-input type="number" formControlName="constitution" min="1" max="30" placeholder="Constitution" required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="number" min=1 max=30 label="Intelligence" clearInput required></ion-input>
+        <ion-input type="number" formControlName="intelligence" min="1" max="30" placeholder="Intelligence" required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="number" min=1 max=30 label="Wisdom" clearInput required></ion-input>
+        <ion-input type="number" formControlName="wisdom" min="1" max="30" placeholder="Wisdom" required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="hidden" formControlName="character_id" placeholder="Character Id"></ion-input>
+        <ion-input type="number" formControlName="charisma" min="1" max="30" placeholder="Charisma" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="hidden" formControlName="information_id"></ion-input>
       </ion-item>
     </ion-grid>
-    <ion-button expand="block" type="submit" [disabled]="form.invalid">Save</ion-button>
+    <ion-button expand="block" type="submit" [disabled]="form.invalid" (click)="saveStats()">Save</ion-button>
   </form>
 </ion-content>

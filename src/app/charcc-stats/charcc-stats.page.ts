@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {StatsService} from "../services/stats.service";
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -20,8 +20,8 @@ export class CharccStatsPage implements OnInit {
   }
 
   ngOnInit() {
-    const characterId = this.route.snapshot.paramMap.get('id');
-    console.log('Character ID:', characterId);
+    const informationId = this.route.snapshot.paramMap.get('id');
+    console.log('Character ID:', informationId);
     this.form = this.fb.group({
       strength: ['', Validators.required],
       dexterity: ['', Validators.required],
@@ -29,9 +29,29 @@ export class CharccStatsPage implements OnInit {
       intelligence: ['', Validators.required],
       wisdom: ['', Validators.required],
       charisma: ['', Validators.required],
-      character_id: [characterId],
-    })
+      information_id: [Number(informationId), Validators.required],
+    });
   }
 
+  saveStats() {
+    if (this.form.valid) {
+      const statsData = {
+        ...this.form.value,
+        information: { id: this.form.value.information_id },
+      };
 
+      console.log('Datos del formulario de stats: ', statsData);
+      this.httpClient.post('http://localhost:8080/api/charcc/stats', statsData).subscribe({
+        next: (response) => {
+          console.log('Stats guardados con éxito', response);
+          this.router.navigate(['/']);
+        },
+        error: (err) => {
+          console.error('Error al guardar los stats', err);
+        },
+      });
+    } else {
+      console.log('El formulario de stats no es válido');
+    }
+  }
 }
