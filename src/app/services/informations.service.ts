@@ -13,4 +13,5 @@ export class InformationsService {
   getInformations(){
     return this.httpClient.get(this.endpoint);
   }
+
 }

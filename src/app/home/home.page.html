@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Your Characters
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,6 +12,16 @@
       <ion-title size="large">CharCRUD</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-list>
+    <ion-item *ngFor="let i of informations">
+      <ion-label>
+        <h1>{{i.name}}</h1>
+        <p>{{i.race}}</p>
+        <p>{{i.charClass}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
   <div id="container">
     <ion-button expand="block" (click)="createCharacter()">Create Character</ion-button>
