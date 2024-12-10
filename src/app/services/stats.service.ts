@@ -14,4 +14,12 @@ export class StatsService {
     return this.httpClient.get(this.endpoint);
   }
 
+  getStatsByInformationId(informationId: number) {
+    return this.httpClient.get(`${this.endpoint}/information/${informationId}`);
+  }
+
+  updateStats(id: number, stats: any){
+    return this.httpClient.put(`${this.endpoint}/${id}`, stats);
+  }
+
 }
