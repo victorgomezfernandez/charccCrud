@@ -31,4 +31,8 @@ export class HomePage implements OnInit {
     })
   }
 
+  deleteCharacter(id: number) {
+    return this.httpClient.delete(`${this.endpoint}/${id}`)
+  }
+
 }
