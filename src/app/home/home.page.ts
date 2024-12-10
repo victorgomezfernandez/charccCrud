@@ -31,8 +31,25 @@ export class HomePage implements OnInit {
     })
   }
 
+  editCharacter(id: number) {
+    this.router.navigate(['/charcc-informations', id]);
+  }
+
+  editStats(id: number){
+    this.router.navigate(['/charcc-stats', id]);
+  }
+
   deleteCharacter(id: number) {
-    return this.httpClient.delete(`${this.endpoint}/${id}`)
+    console.log('Personaje a eliminar: ', id);
+    this.httpClient.delete(`${this.endpoint}/${id}`).subscribe({
+      next: () => {
+        this.informations = this.informations.filter((info: any) => info.id !== id);
+        console.log('Personaje eliminado');
+      },
+      error: (err) => {
+        console.error('Error al eliminar el personaje:', err);
+      }
+    });
   }
 
 }

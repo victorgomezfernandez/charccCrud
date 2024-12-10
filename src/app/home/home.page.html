@@ -19,6 +19,8 @@
         <h1>{{i.name}}</h1>
         <p>{{i.race}}</p>
         <p>{{i.charClass}}</p>
+        <ion-button (click)="editCharacter(i.id)">Edit Character</ion-button>
+        <ion-button (click)="editStats(i.id)">Edit Stats</ion-button>
         <ion-button (click)="deleteCharacter(i.id)">Delete Character</ion-button>
       </ion-label>
     </ion-item>
