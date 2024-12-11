@@ -34,8 +34,8 @@
       <ion-input type="text" formControlName="bonds" placeholder="Bonds"></ion-input>
     </ion-item>
     <ion-item class="large_input">
-      <ion-textarea formControlName="backstory" placeholder="Backstory"></ion-textarea>
+      <ion-textarea type="text" formControlName="backstory" placeholder="Backstory"></ion-textarea>
     </ion-item>
-    <button class="informationSave" type="submit" [disabled]="form.invalid" (click)="saveInformation()">Save Information</button>
   </form>
+  <button class="informationSave" type="submit" [disabled]="form.invalid" (click)="saveInformation()">Save Information</button>
 </div>
