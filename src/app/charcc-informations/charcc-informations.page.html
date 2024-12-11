@@ -1,51 +1,41 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>New Character: Information</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true" class="new_container">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">New Character: Information</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <form [formGroup]="form">
-    <ion-grid>
-      <ion-item>
-        <ion-input class="medium_input" type="text" formControlName="name" placeholder="Name"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input class="medium_input" type="number" formControlName="age" placeholder="Age"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input class="medium_input" type="number" formControlName="level" placeholder="Level"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input class="medium_input" type="text" formControlName="charClass" placeholder="Class"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input class="medium_input" type="text" formControlName="race" placeholder="Race"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input class="medium_input" type="text" formControlName="factions" placeholder="Factions"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input class="medium_input" type="text" formControlName="traits" placeholder="Traits"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input class="medium_input" type="text" formControlName="ideals" placeholder="Ideals"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input class="medium_input" type="text" formControlName="flaws" placeholder="Flaws"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input class="medium_input" type="text" formControlName="bonds" placeholder="Bonds"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-textarea class="large_input" formControlName="backstory" placeholder="Backstory"></ion-textarea>
-      </ion-item>
-    </ion-grid>
-    <ion-button expand="block" type="submit" [disabled]="form.invalid" (click)="saveInformation()">Save</ion-button>
+<div class="informationContainer">
+  <div class="informationTitle">
+    <span>INFORMATION</span>
+  </div>
+  <form [formGroup]="form" class="informationForm">
+    <ion-item class="medium_input">
+      <ion-input type="text" formControlName="name" placeholder="Name"></ion-input>
+    </ion-item>
+    <ion-item class="medium_input">
+      <ion-input type="number" formControlName="age" placeholder="Age"></ion-input>
+    </ion-item>
+    <ion-item class="medium_input">
+      <ion-input type="number" formControlName="level" placeholder="Level"></ion-input>
+    </ion-item>
+    <ion-item class="medium_input">
+      <ion-input type="text" formControlName="charClass" placeholder="Class"></ion-input>
+    </ion-item>
+    <ion-item class="medium_input">
+      <ion-input type="text" formControlName="race" placeholder="Race"></ion-input>
+    </ion-item>
+    <ion-item class="medium_input">
+      <ion-input type="text" formControlName="factions" placeholder="Factions"></ion-input>
+    </ion-item>
+    <ion-item class="medium_input">
+      <ion-input type="text" formControlName="traits" placeholder="Traits"></ion-input>
+    </ion-item>
+    <ion-item class="medium_input">
+      <ion-input type="text" formControlName="ideals" placeholder="Ideals"></ion-input>
+    </ion-item>
+    <ion-item class="medium_input">
+      <ion-input type="text" formControlName="flaws" placeholder="Flaws"></ion-input>
+    </ion-item>
+    <ion-item class="medium_input">
+      <ion-input type="text" formControlName="bonds" placeholder="Bonds"></ion-input>
+    </ion-item>
+    <ion-item class="large_input">
+      <ion-textarea formControlName="backstory" placeholder="Backstory"></ion-textarea>
+    </ion-item>
+    <button class="informationSave" type="submit" [disabled]="form.invalid" (click)="saveInformation()">Save Information</button>
   </form>
-</ion-content>
+</div>

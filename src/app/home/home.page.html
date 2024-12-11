@@ -1,32 +1,23 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Your Characters
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">CharCRUD</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-list>
-    <ion-item *ngFor="let i of informations">
-      <ion-label>
-        <h1>{{i.name}}</h1>
-        <p>{{i.race}}</p>
-        <p>{{i.charClass}}</p>
-        <ion-button (click)="editCharacter(i.id)">Edit Character</ion-button>
-        <ion-button (click)="editStats(i.id)">Edit Stats</ion-button>
-        <ion-button (click)="deleteCharacter(i.id)">Delete Character</ion-button>
-      </ion-label>
-    </ion-item>
-  </ion-list>
-
-  <div id="container">
-    <ion-button expand="block" (click)="createCharacter()">Create Character</ion-button>
+<div class="homePageContainer">
+  <div class="homeTitle">
+    <span>YOUR CHARACTERS</span>
   </div>
-</ion-content>
+  <div class="homeContent">
+    <div class="characterList">
+      <div *ngFor="let i of informations" class="characterItem">
+        <div class="characterContainer">
+          <div class="characterInfoContainer">
+            <h1>{{ i.name }}</h1>
+            <p>{{ i.race }}</p>
+            <p>{{ i.charClass }}</p>
+          </div>
+          <button class="editButton" (click)="editCharacter(i.id)">Edit Character</button>
+          <button class="editButton" (click)="editStats(i.id)">Edit Stats</button>
+          <button class="deleteButton" (click)="deleteCharacter(i.id)">Delete Character</button>
+        </div>
+      </div>
+    </div>
+
+    <button class="createButton" (click)="createCharacter()">Create Character</button>
+  </div>
+</div>
