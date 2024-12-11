@@ -83,7 +83,7 @@ export class CharccInformationsPage implements OnInit {
     this.httpClient.put(`${this.endpoint}/${this.characterId}`, formData).subscribe({
       next: (response: any) => {
         console.log('Información actualizada con éxito', response);
-        this.router.navigate(['/home']);  // Redirigir a la página principal después de actualizar
+        this.router.navigate(['/home'], { queryParams: { refresh: true } });
       },
       error: (err) => {
         console.error('Error al actualizar la información', err);

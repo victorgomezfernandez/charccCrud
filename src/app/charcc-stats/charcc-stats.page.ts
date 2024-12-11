@@ -66,7 +66,7 @@ export class CharccStatsPage implements OnInit {
         this.httpClient.post('http://localhost:8080/api/charcc/stats', statsData).subscribe({
           next: (response) => {
             console.log('Stats guardados con éxito', response);
-            this.router.navigate(['/']);
+            this.router.navigate(['/home'],{ queryParams: { refresh: true } });
           },
           error: (err) => {
             console.error('Error al guardar los stats', err);
